@@ -18,3 +18,10 @@ Share it!
 4. A page showing all a user's submissions
 5. A page showing all a user's comments
 6. A user signup and login page
+
+### Website Colors:
+pinky: #ee6e73
+pinky-text: #ee5e73
+water-green: #73ee6e
+water-green-text: #73ee6e
+Indigo Lighten-2: #6e73ee

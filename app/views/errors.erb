@@ -1,0 +1,10 @@
+<%if @errors%>
+  <div class="row">
+    <div class="col s12 m8 offset-m2 l6 offset-l3 center">
+      <h5 class="red-text">Wait one sec! You got some errors:</h5>
+      <% @errors.each do |error| %>
+        <p class="light-blue-text"><%= error %></p>
+      <% end %>
+    </div>
+  </div>
+<% end %>

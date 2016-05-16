@@ -31,11 +31,7 @@ configure do
   # By default, Sinatra assumes that the root is the file that calls the configure block.
   # Since this is not the case for us, we set it manually.
   set :root, APP_ROOT.to_path
-  # Enable sessions
-  set :sessions, true
-  set :logging, true
-  set :dump_errors, false
-  set :some_custom_option, false
+
   # See: http://www.sinatrarb.com/faq.html#sessions
   enable :sessions
   set :session_secret, ENV['SESSION_SECRET'] || 'this is a secret shhhhh'

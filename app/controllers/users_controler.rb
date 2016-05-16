@@ -7,15 +7,8 @@ get '/users' do
 end
 
 get '/users/new' do
-
-  erb :'users/new' #show new user view
-
-end
-
-get '/users/new' do
   @errors = nil
   erb :'users/new' #show new user view
-
 end
 
 post '/users' do
@@ -24,10 +17,8 @@ post '/users' do
   @user = User.new(params[:user]) #create new user
 
   if @user.save #saves new user or returns false if unsuccessful
-    if params[:image]
-      @user.images.create(name: params[image])
-    end
-    redirect '/users/' #redirect back to user index page
+    @user.images.create(name: params[:image]) if params[:image]
+    redirect "/users/#{@user.id}" #redirect back to user index page
   else
     @errors = @user.errors.full_messages
     erb :'users/new' # show new user view again(potentially displaying errors)
@@ -48,7 +39,7 @@ end
 get '/users/:id/edit' do
 
   #get params from url
-  @user = User.find(params[:id]) #define intstance variable for view
+  @user = User.find(params[:id]) #define instance variable for view
 
   erb :'user/edit' #show edit user view
 

@@ -1,24 +1,24 @@
-get '/user' do
+get '/users' do
 
   @user = User.all #define instance variable for view
 
-  erb :'user/index' #show all user view (index)
+  erb :'users/index' #show all user view (index)
 
 end
 
-get '/user/new' do
+get '/users/new' do
 
-  erb :'user/new' #show new user view
-
-end
-
-get '/user/new' do
-
-  erb :'user/new' #show new user view
+  erb :'users/new' #show new user view
 
 end
 
-post '/user' do
+get '/users/new' do
+
+  erb :'users/new' #show new user view
+
+end
+
+post '/users' do
 
   #below works with properly formatted params in HTML form
   @user = User.new(params[:user]) #create new user
@@ -31,17 +31,17 @@ post '/user' do
 
 end
 
-get '/user/:id' do
+get '/users/:id' do
 
   #gets params from url
 
   @user = User.find(params[:id]) #define instance variable for view
 
-  erb :'user/show' #show single user view
+  erb :'users/show' #show single user view
 
 end
 
-get '/user/:id/edit' do
+get '/users/:id/edit' do
 
   #get params from url
   @user = User.find(params[:id]) #define intstance variable for view
@@ -50,7 +50,7 @@ get '/user/:id/edit' do
 
 end
 
-put '/user/:id' do
+put '/users/:id' do
 
   #get params from url
   @user = User.find(params[:id]) #define variable to edit
@@ -58,21 +58,21 @@ put '/user/:id' do
   @user.assign_attributes(params[:user]) #assign new attributes
 
   if @user.save #saves new user or returns false if unsuccessful
-    redirect '/user' #redirect back to user index page
+    redirect '/users' #redirect back to user index page
   else
-    erb :'user/edit' #show edit user view again(potentially displaying errors)
+    erb :'users/edit' #show edit user view again(potentially displaying errors)
   end
 
 end
 
-delete '/user/:id' do
+delete '/users/:id' do
 
   #get params from url
   @user = User.find(params[:id]) #define user to delete
 
   @user.destroy #delete user
 
-  redirect '/user' #redirect back to user index page
+  redirect '/users' #redirect back to user index page
 
 end
 

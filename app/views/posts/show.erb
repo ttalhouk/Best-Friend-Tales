@@ -1,0 +1,23 @@
+<div class="row">
+  <div class="col s12 center pinky-text text-ligten-2">
+    <h3><%= @post.title%>/h2>
+  </div>
+</div>
+<article>
+<div class="row">
+  <div class="col s12 center pinky-text text-ligten-2">
+    <p><%= @post.body %></p>
+    </div>
+    </div>
+
+
+<div class="row">
+  <div class="col s12 center pinky-text text-ligten-2">
+    <ul class="collection">
+      <% @post.comments.each do |comments| %>
+        <li class="collection-item"><%= comment.body %></li>
+        <p><%= comment.user.username%></p>
+      <% end %>
+    </ul>
+  </div>
+</div>

@@ -8,12 +8,12 @@
   <form class="col s12" action="/users" method="post">
 
     <div class="input-field col s6">
-      <input name="first_name" type="text" class="validate">
+      <input name="user[first_name]" type="text" class="validate">
       <label for="first_name">First Name</label>
     </div>
 
     <div class="input-field col s6">
-      <input name="last_name" type="text" class="validate">
+      <input name="user[last_name]" type="text" class="validate">
       <label for="last_name">Last Name</label>
     </div>
 
@@ -23,7 +23,7 @@
     </div>
 
     <div class="input-field col s12">
-      <input name="password" type="password" class="validate">
+      <input name="user[password]" type="password" class="validate">
       <label for="password">Password</label>
     </div>
     <div class="row">
@@ -36,3 +36,7 @@
 
   </form>
 </div>
+<%if @errors%>
+<% @errors.each do |error| %>
+<%= errors %>
+<% end %>

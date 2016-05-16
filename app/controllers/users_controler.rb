@@ -13,7 +13,7 @@ get '/users/new' do
 end
 
 get '/users/new' do
-
+  @errors = nil
   erb :'users/new' #show new user view
 
 end
@@ -24,9 +24,13 @@ post '/users' do
   @user = User.new(params[:user]) #create new user
 
   if @user.save #saves new user or returns false if unsuccessful
-    redirect '/user' #redirect back to user index page
+    if params[:image]
+      @user.images.create(name: params[image])
+    end
+    redirect '/users/' #redirect back to user index page
   else
-    erb :'user/new' # show new user view again(potentially displaying errors)
+    @errors = @user.errors.full_messages
+    erb :'users/new' # show new user view again(potentially displaying errors)
   end
 
 end

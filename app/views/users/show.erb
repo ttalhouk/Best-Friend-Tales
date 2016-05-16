@@ -1,7 +1,7 @@
-<% if @user.images.name %>
+<% if @user.images %>
   <div class="row">
-    <div class="col s12 center pinky-text text-ligten-2">
-      <img src=<%= @user.images.name %>>
+    <div class="col s12 center pinky-text text-ligten-2 ">
+      <img class="responsive-img" src="<%= @user.images.first.name %>">
     </div>
   </div>
 <% end %>

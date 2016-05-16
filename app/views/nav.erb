@@ -1,18 +1,28 @@
 <nav>
   <div class="nav-wrapper">
-    <a href="/" class="brand-logo">Pet Tales</a>
+    <a href="/" class="brand-logo center">Pet Tales</a>
     <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
     <ul class="right hide-on-med-and-down">
-      <li><a href="sass.html">Sass</a></li>
-      <li><a href="badges.html">Components</a></li>
-      <li><a href="collapsible.html">Javascript</a></li>
-      <li><a href="mobile.html">Mobile</a></li>
+      <% if current_user %>
+        <li><a herf="/posts">All Posts</a></li>
+        <li><a href="/users/<%= current_user.id %>/posts">Your Posts</a></li>
+        <li><a href="/users/<%= current_user.id %>/comments">Your Comments</a></li>
+        <li><a href="/users/<%= current_user.id %>">Profile</a></li>
+      <% else %>
+        <li><a href="/users/new">Sign Up</a></li>
+        <li><a href="/login">Login</a></li>
+      <% end %>
     </ul>
     <ul class="side-nav" id="mobile-demo">
-      <li><a href="sass.html">Sass</a></li>
-      <li><a href="badges.html">Components</a></li>
-      <li><a href="collapsible.html">Javascript</a></li>
-      <li><a href="mobile.html">Mobile</a></li>
+      <% if current_user %>
+        <li><a herf="/posts">All Posts</a></li>
+        <li><a href="/users/<%= current_user.id %>/posts">Your Posts</a></li>
+        <li><a href="/users/<%= current_user.id %>/comments">Your Comments</a></li>
+        <li><a href="/users/<%= current_user.id %>">Profile</a></li>
+      <% else %>
+        <li><a href="/users/new">Sign Up</a></li>
+        <li><a href="/login">Login</a></li>
+      <% end %>
     </ul>
   </div>
 </nav>

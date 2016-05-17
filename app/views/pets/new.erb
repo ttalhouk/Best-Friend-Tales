@@ -15,17 +15,43 @@
     </div>
 
     <div class="input-field col s12">
-      <input name="pet[species]" type="text" class="validate" length="75">
-      <label for="species">Species</label>
+      <select class="browser-default">
+        <option value="" disabled selected>Animal Type</option>
+        <option name="pet[animal]" value="dog">Dog</option>
+        <option name="pet[animal]" value="cat">Cat</option>
+        <option name="pet[animal]" value="marsupial">Marsupial</option>
+        <option name="pet[animal]" value="bird">Bird</option>
+        <option name="pet[animal]" value="lizard">Lizard</option>
+        <option name="pet[animal]" value="exotic">Exotic</option>
+      </select>
+      <label></label>
     </div>
 
     <div class="input-field col s12">
-      <input name="pet[breed]" type="text" class="validate" length="20">
-      <label for="breed">Breed</label>
+      <select class="browser-default">
+        <option value="" disabled selected>Gender</option>
+        <option name="pet[sex]" value="male">Male</option>
+        <option name="pet[sex]" value="female">Female</option>
+      </select>
+      <label></label>
+    </div>
+
+    <div class="input-field col s12">
+      <select class="browser-default">
+        <option value="" disabled selected>Mixed breeds?</option>
+        <option name="pet[mix]" value="yes">Yes</option>
+        <option name="pet[mix]" value="no">No</option>
+      </select>
+      <label></label>
+    </div>
+
+    <div class="input-field col s12">
+      <input name="pet[breeds]" type="text" class="validate">
+      <label for="breeds">Breeds</label>
     </div>
 
     <div class="input-field col s4 offset-s4">
-      <input name="pet[age]" type="number" class="validate">
+      <input name="pet[age]" type="text" class="validate">
       <label for="age">Age</label>
     </div>
 
@@ -34,8 +60,13 @@
       <label for="image">Image URL</label>
     </div>
 
+    <div class="input-field col s12">
+      <textarea id="description" name="pet[description]" class="materialize-textarea validate"></textarea>
+      <label for="description">Pet Description</label>
+    </div>
+
     <div class="input-field col s12 center">
-      <button class="btn waves-effect waves-purple water-green" type="submit">Add Pet
+      <button class="btn waves-effect waves-purple light-green" type="submit">Add Pet
         <i class="material-icons right">send</i>
       </button>
     </div>

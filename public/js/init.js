@@ -3,4 +3,6 @@ $(document).ready(function() {
   $(".button-collapse").sideNav();
   // Character Counter for Form Fields
   $('input#input_text, textarea#textarea1').characterCounter();
+  // Homepage parallax
+  $('.parallax').parallax();
 });

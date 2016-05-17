@@ -1,6 +1,6 @@
 helpers do
   def logged_in?
-    redirect '/users/new' unless session[:user_id]
+    redirect '/login' unless session[:user_id]
   end
 
   def current_user

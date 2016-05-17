@@ -5,7 +5,9 @@
       <h1 class="header center pinky-text">Welcome to Pet Tales</h1>
       <br/><br/><br/>
       <div class="row center">
-        <a href="/users/new" class="btn-large waves-effect waves-purple light-green">Create an Account</a>
+        <% unless current_user %>
+          <a href="/users/new" class="btn-large waves-effect waves-purple light-green">Create an Account</a>
+        <% end %>
       </div>
       <br><br>
 

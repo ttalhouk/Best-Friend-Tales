@@ -4,9 +4,7 @@
     <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
     <ul class="right hide-on-med-and-down">
       <% if current_user %>
-        <li><a href="/posts">All Posts</a></li>
-        <li><a href="/users/<%= current_user.id %>/posts">Your Posts</a></li>
-        <li><a href="/users/<%= current_user.id %>/comments">Your Comments</a></li>
+        <li><a href="/posts">Discover Posts</a></li>
         <li><a href="/users/<%= current_user.id %>">Profile</a></li>
       <% else %>
         <li><a href="/users/new">Sign Up</a></li>
@@ -20,9 +18,7 @@
     <% end %>
     <ul class="side-nav" id="mobile-demo">
       <% if current_user %>
-        <li><a herf="/posts">All Posts</a></li>
-        <li><a href="/users/<%= current_user.id %>/posts">Your Posts</a></li>
-        <li><a href="/users/<%= current_user.id %>/comments">Your Comments</a></li>
+        <li><a herf="/posts">Discover Posts</a></li>
         <li><a href="/users/<%= current_user.id %>">Profile</a></li>
         <li><a href="/logout">Logout</a><li>
       <% else %>

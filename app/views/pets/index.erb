@@ -1,0 +1,13 @@
+<div class="row">
+  <div class="col s12 center">
+    <h1 class="light-green-text"><%=@user.username%>'s Pets</h1>
+  </div>
+</div>
+
+<div id="pets">
+  <% if @pets.any? %>
+    <% @pets.each do |pet| %>
+      <%= erb :'pets/_pet_show', layout: false, locals: {pet: pet}%>
+    <% end %>
+  <% end %>
+</div>

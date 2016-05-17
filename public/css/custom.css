@@ -13,3 +13,11 @@
 .pinky-text {
   color: #ee6e73;
 }
+
+.parallax-container {
+  height: 40em;
+}
+
+.banner {
+  margin-bottom: 0;
+}

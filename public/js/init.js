@@ -19,10 +19,33 @@ $(document).ready(function() {
       method: "get",
       url: link
     }).done(function(messages){
-      console.log(messages)
       $("#comments").append(messages)
     })
 
   })
+    $("#add-comment").on('click', function(event){
+    event.preventDefault()
+    var link = $(this).attr('href')
+    $("#post-buttons").hide()
+    $.ajax({
+      method: "get",
+      url: link
+    }).done(function(messages){
+      $("#comments").append(messages)
+    })
+
+  })
+  //   $("#add-comment").on('click', function(event){
+  //   event.preventDefault()
+  //   var link = $(this).attr('href')
+  //   $("#post-buttons").hide()
+  //   $.ajax({
+  //     method: "get",
+  //     url: link
+  //   }).done(function(messages){
+  //     $("#comments").append(messages)
+  //   })
+
+  // })
 
 });

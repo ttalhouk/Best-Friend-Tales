@@ -36,7 +36,7 @@
     </div>
   </section>
     <div class="row center" id="post-buttons">
-      <a id="#add-comment" class="waves-effect waves-purple btn"><i class="material-icons left">cloud</i>Add a Comment</a>
+      <a id="add-comment" href='/users/<%= @user.id %>/posts/<%= @post.id %>/comments/new'class="waves-effect waves-purple btn"><i class="material-icons left">cloud</i>Add a Comment</a>
 
 
       <%if @user.id == current_user.id %>

@@ -1,0 +1,4 @@
+    <li>
+      <div class="collapsible-header pinky-text"><%= post.title %></div>
+      <div class="collapsible-body light-green white-text"><a class="white-text" href="/users/<%= post.user.id %>/posts/<%= post.id %>"><p><%= post.description%></a><br>~<%=post.created_at.strftime('%b %d, %Y') %></p></div>
+    </li>

@@ -7,16 +7,17 @@
     <% if @post.images %>
     <div class="row">
       <div class="col s12 center pinky-text text-ligten-2 ">
-        <img class="responsive-img" src="<%= @post.images.first.name %>">
+        <img class="responsive-img" src="<%= @post.images.last.name %>">
       </div>
     </div>
     <% end %>
     <div class="row">
       <div class="col s12 center pinky-text">
-      <p class="flow-text"><%= @post.body %></p>
+        <p class="flow-text"><%= @post.body %></p>
       </div>
     </div>
-
+  </article>
+  <section id="comments">
     <div class="row center">
       <div class="col s12 center pinky white-text">
         <h3>Comments</h3>
@@ -33,7 +34,13 @@
         </ul>
       </div>
     </div>
-    <div class="row center">
-      <a id="#add-comment" class="waves-effect waves-light btn"><i class="material-icons left">cloud</i>Add a Comment</a>
+  </section>
+    <div class="row center" id="post-buttons">
+      <a id="#add-comment" class="waves-effect waves-purple btn"><i class="material-icons left">cloud</i>Add a Comment</a>
+
+
+      <%if @user.id == current_user.id %>
+        <a id="edit-post" href='/users/<%= @user.id %>/posts/<%= @post.id %>/edit'class="waves-effect waves-light btn"><i class="material-icons left">cloud</i>Edit Your Post</a>
+      <% end %>
     </div>
 

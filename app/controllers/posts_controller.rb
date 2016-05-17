@@ -1,59 +1,65 @@
 get '/posts' do
 
-  @posts = Post.all #define instance variable for view
+  @posts = Post.all.reverse #define instance variable for view
 
   erb :'posts/index' #show all posts view (index)
 
 end
 
-get '/users/:id/posts/new' do
+get '/users/:user_id/posts/new' do
 
   erb :'posts/new' #show new posts view
 
 end
 
-post '/user/:id/posts' do
+post '/users/:user_id/posts' do
 
   #below works with properly formatted params in HTML form
-  @post = Post.new(params[:post]) #create new post
+  @post = current_user.posts.new(params[:post]) #create new post
 
   if @post.save #saves new post or returns false if unsuccessful
     @post.images.create(name: params[:image]) if params[:image]
     redirect '/posts' #redirect back to posts index page
   else
+    @errors = @post.errors.full_messages
     erb :'posts/new' # show new posts view again(potentially displaying errors)
   end
 
 end
 
 
-get '/users/:id/posts/:id' do
+get '/users/:user_id/posts/:post_id' do
 
   #gets params from url
-
-  @post = Post.find(params[:id]) #define instance variable for view
+  @user = User.find(params[:user_id])
+  @post = Post.find(params[:post_id]) #define instance variable for view
 
   erb :'posts/show' #show single post view
 
 end
 
-get '/posts/:id/edit' do
+get '/users/:user_id/posts/:post_id/edit' do
 
   #get params from url
-  @post = Post.find(params[:id]) #define intstance variable for view
+  @post = Post.find(params[:post_id]) #define intstance variable for view
+  @user = User.find(params[:user_id])
+  if request.xhr?
 
-  erb :'posts/edit' #show edit post view
-
+    erb :'posts/edit', layout: false , locals: {post: @post}
+  else
+    erb :'posts/edit', locals: {post: @post}
+  end
 end
 
-put '/posts/:id' do
+put '/users/:user_id/posts/:post_id' do
 
   #get params from url
-  @post = Post.find(params[:id]) #define variable to edit
+  @post = Post.find(params[:post_id]) #define variable to edit
+  @user = User.find(params[:user_id])
+  @image = @post.images.new(name: params[:image])
 
   @post.assign_attributes(params[:post]) #assign new attributes
-
-  if @post.save #saves new post or returns false if unsuccessful
+  if @post.save && @image.save #saves new post or returns false if unsuccessful
     redirect '/posts' #redirect back to posts index page
   else
     erb :'posts/edit' #show edit post view again(potentially displaying errors)
@@ -61,7 +67,7 @@ put '/posts/:id' do
 
 end
 
-delete '/posts/:id' do
+delete '/posts/:post_id' do
 
   #get params from url
   @post = Post.find(params[:id]) #define post to delete

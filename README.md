@@ -6,6 +6,7 @@ This is a Sinatra app for pet owners to share their hilarious pet stories with o
 
 1. kelsonic
 2. ttalhouk
+3.
 
 ## MIT License
 

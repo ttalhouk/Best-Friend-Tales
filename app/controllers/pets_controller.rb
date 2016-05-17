@@ -7,17 +7,27 @@ end
 
 # Pets new action
 get '/users/:user_id/pets/new' do
+  @user = User.find(params[:user_id])
   erb :'pets/new'
+end
+
+# User pets show action
+get '/users/:user_id/pets/:pet_id' do
+  @user = User.find(params[:user_id])
+  @pet = Pet.find(params[:pet_id])
+  erb :'pets/show'
 end
 
 # Pets create action
 post '/users/:user_id/pets' do
   @user = User.find(params[:user_id])
   @pet = @user.pets.new(params[:pet])
-  if @pet.save
-    redirect "/users/#{@user.id}/pets/#{@pet.id}"
+  @image = @pet.images.new(name: params[:image])
+
+  if @pet.save && @image.save
+    redirect "/users/#{@user.id}/pets"
   else
-    @errors = @pet.errors.full_messages
+    @errors = "Pet errors: \n#{@pet.errors.full_messages} \nImage errors: \n#{@image.errors.full_messages}"
     erb :'pets/new'
   end
 end

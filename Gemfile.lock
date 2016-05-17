@@ -28,6 +28,7 @@ GEM
       xpath (~> 2.0)
     diff-lcs (1.2.5)
     dotenv (2.1.1)
+    excon (0.49.0)
     factory_girl (4.7.0)
       activesupport (>= 3.0.0)
     faker (1.6.3)
@@ -42,6 +43,9 @@ GEM
     multi_json (1.12.0)
     nokogiri (1.6.7.2)
       mini_portile2 (~> 2.0.0.rc2)
+    petfinder (1.0.3)
+      excon (~> 0.26)
+      nokogiri (~> 1.6)
     pg (0.18.4)
     rack (1.6.4)
     rack-protection (1.5.3)
@@ -95,6 +99,7 @@ DEPENDENCIES
   dotenv
   factory_girl
   faker
+  petfinder (~> 1.0, >= 1.0.3)
   pg
   rack-test
   rake

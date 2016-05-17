@@ -21,7 +21,7 @@
 <div class="row">
   <div class="collection">
     <% @user.posts.each do |post| %>
-    <p class="collection-item"><a href="/posts/<%= post.id %>" ><%=  post.title %></a></br>
+    <p class="collection-item"><a href="/users/<%= @user.id %>/posts/<%= post.id %>" ><%=  post.title %></a></br>
     <%= post.description %></p>
     <% end %>
   </div>
@@ -36,7 +36,7 @@
 <div class="row">
   <div class="collection">
     <% @user.comments.each do |comment| %>
-    <a href="posts/<%= comment.post_id %>/comments/<%= comment.id %>" class="collection-item"><%=comment.body%></a>
+    <a href="/user/<%= @user.id %>/posts/<%= comment.post_id %>/comments/<%= comment.id %>" class="collection-item"><%=comment.body%></a>
     <% end %>
   </div>
 </div>

@@ -1,23 +1,39 @@
 <div class="row">
-  <div class="col s12 center pinky-text text-ligten-2">
-    <h3><%= @post.title%>/h2>
-  </div>
-</div>
-<article>
-<div class="row">
-  <div class="col s12 center pinky-text text-ligten-2">
-    <p><%= @post.body %></p>
+  <div class="col s12 center pinky-text">
+    <h3><%= @post.title%></h2>
     </div>
+  </div>
+  <article>
+    <% if @post.images %>
+    <div class="row">
+      <div class="col s12 center pinky-text text-ligten-2 ">
+        <img class="responsive-img" src="<%= @post.images.first.name %>">
+      </div>
+    </div>
+    <% end %>
+    <div class="row">
+      <div class="col s12 center pinky-text">
+      <p class="flow-text"><%= @post.body %></p>
+      </div>
     </div>
 
+    <div class="row center">
+      <div class="col s12 center pinky white-text">
+        <h3>Comments</h3>
+      </div>
+    </div>
 
-<div class="row">
-  <div class="col s12 center pinky-text text-ligten-2">
-    <ul class="collection">
-      <% @post.comments.each do |comments| %>
-        <li class="collection-item"><%= comment.body %></li>
-        <p><%= comment.user.username%></p>
-      <% end %>
-    </ul>
-  </div>
-</div>
+    <div class="row">
+      <div class="col s12 center pinky-text">
+        <ul class="collection">
+          <% @post.comments.each do |comment| %>
+          <li class="collection-item"><%= comment.body %><p>-<%= comment.user.username%></p></li>
+
+          <% end %>
+        </ul>
+      </div>
+    </div>
+    <div class="row center">
+      <a id="#add-comment" class="waves-effect waves-light btn"><i class="material-icons left">cloud</i>Add a Comment</a>
+    </div>
+

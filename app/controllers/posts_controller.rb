@@ -6,18 +6,19 @@ get '/posts' do
 
 end
 
-get '/posts/new' do
+get '/users/:id/posts/new' do
 
   erb :'posts/new' #show new posts view
 
 end
 
-post '/posts' do
+post '/user/:id/posts' do
 
   #below works with properly formatted params in HTML form
   @post = Post.new(params[:post]) #create new post
 
   if @post.save #saves new post or returns false if unsuccessful
+    @post.images.create(name: params[:image]) if params[:image]
     redirect '/posts' #redirect back to posts index page
   else
     erb :'posts/new' # show new posts view again(potentially displaying errors)
@@ -26,7 +27,7 @@ post '/posts' do
 end
 
 
-get '/posts/:id' do
+get '/users/:id/posts/:id' do
 
   #gets params from url
 

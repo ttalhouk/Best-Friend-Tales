@@ -28,8 +28,9 @@
             <input type="hidden" name="pet[breeds]" value="<%= pet.breeds.join(" | ") %>">
             <input type="hidden" name="pet[is_pet_of_user]" value="false">
             <input type="hidden" name="pet[shelter_id]" value="<%= pet.shelter_id %>">
-            <input type="hidden" name="image" value="<%= pet.photos.sample.medium || pet.photos.sample.large %>"
-            <input type="submit" value="Add to Profile" class="btn waves-effect waves-purple light-green">
+            <input type="hidden" name="image" value="<%= pet.photos.sample.medium || pet.photos.sample.large %>">
+            <button type="submit" value="Add to Profile" class="btn waves-effect waves-purple light-green">Add to Profile
+            </button>
           </form>
         </div>
       </div>

@@ -3,10 +3,10 @@ class CreatePets < ActiveRecord::Migration
     create_table :pets do |t|
       t.string :name
       t.string :animal
-      t.boolean :mix, default: false
-      t.integer :age
+      t.string :mix, default: "no"
+      t.string :age, default: "N/A"
       t.string :sex
-      t.string :description
+      t.string :description, default: "No description given."
       t.string :breeds
       t.boolean :is_pet_of_user, default: true
       t.string :shelter_id

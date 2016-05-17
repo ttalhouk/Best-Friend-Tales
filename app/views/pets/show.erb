@@ -1,0 +1,27 @@
+<div class="row">
+  <div class="col s12 center">
+    <h1 class="pinky-text">A pet from <span class="light-green-text"><%= @user.username %></span></h1>
+  </div>
+</div>
+
+<div id="pet">
+  <div class="row">
+    <div class="col s12 m8 offset-m2 l4 offset-l4">
+      <div class="card">
+        <div class="card-image">
+          <img src="<%= @pet.images.last.name %>">
+        </div>
+        <div class="card-content center flow-text">
+          <p class="red-text text-lighten-2"><%= @pet.name %></p>
+          <p><%= "Species: #{@pet.species}" %></p>
+          <p><%= "Breed: #{@pet.breed}" %></p>
+          <p><%= "Age: #{@pet.age}" if @pet.age %></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row center">
+  <a href="/users/<%= @user.id %>"><button class="btn waves-effect waves-purple light-blue">Back to Profile</button></a>
+</div>

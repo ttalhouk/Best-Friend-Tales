@@ -18,7 +18,7 @@ post_images = [
 end
 
 User.all.each do |user|
-  user.pets.create!(name: Faker::Name.name, breed: breeds.sample, species: species.sample, age: rand(1..20))
+  user.pets.create!(name: Faker::Name.name, breed: breeds.sample, animal: species.sample, age: rand(1..20))
   user.posts.create!(title: "#{user.pets.first.name} is #{Faker::Hacker.ingverb}", description: Faker::Hipster.sentence(2), body: Faker::Hipster.paragraph(10))
   user.comments.create!(post_id: rand(1..Post.all.size), body: Faker::StarWars.quote)
   user.images.create!(name: Faker::Avatar.image)

@@ -3,8 +3,14 @@ $(document).ready(function() {
   $(".button-collapse").sideNav();
   // Character Counter for Form Fields
   $('input#input_text, textarea#textarea1').characterCounter();
+  $('#textarea1').val('New Text');
+  $('#textarea1').trigger('autoresize');
   // Homepage parallax
   $('.parallax').parallax();
+  // New pet form
+  $('select').material_select();
+  $('select').material_select('destroy');
+  Materialize.updateTextFields();
 
 
   $('.collapsible').collapsible({

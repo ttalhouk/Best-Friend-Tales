@@ -1,4 +1,5 @@
 get '/users/:user_id/posts/:post_id/comments/new' do
+  logged_in?
   @post = Post.find(params[:post_id]) #define intstance variable for view
   @user = User.find(params[:user_id])
   @errors = nil

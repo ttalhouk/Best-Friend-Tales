@@ -1,5 +1,5 @@
 get '/users' do
-
+  logged_in?
   @user = User.all #define instance variable for view
 
   erb :'users/index' #show all user view (index)
@@ -17,6 +17,7 @@ post '/users' do
   @user = User.new(params[:user]) #create new user
 
   if @user.save #saves new user or returns false if unsuccessful
+    session[:user_id] = @user.id
     @user.images.create(name: params[:image]) if params[:image]
     redirect "/users/#{@user.id}" #redirect back to user index page
   else
@@ -27,7 +28,7 @@ post '/users' do
 end
 
 get '/users/:id' do
-
+  logged_in?
   #gets params from url
 
   @user = User.find(params[:id]) #define instance variable for view
@@ -37,11 +38,14 @@ get '/users/:id' do
 end
 
 get '/users/:id/edit' do
-
+  logged_in?
   #get params from url
   @user = User.find(params[:id]) #define instance variable for view
-
-  erb :'user/edit' #show edit user view
+  if @user.id == current_user.id
+    erb :'users/edit' #show edit user view
+  else
+    redirect "users/#{current_user.id}/edit"
+  end
 
 end
 
@@ -57,7 +61,6 @@ put '/users/:id' do
   else
     erb :'users/edit' #show edit user view again(potentially displaying errors)
   end
-
 end
 
 delete '/users/:id' do

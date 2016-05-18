@@ -41,9 +41,3 @@ post '/users/:user_id/pets' do
   end
 end
 
-# All pets index action
-get '/pets' do
-  logged_in?
-  @pets = Pet.all
-  erb :'pets/all_index'
-end

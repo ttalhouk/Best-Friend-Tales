@@ -16,7 +16,7 @@ end
 post '/users/:user_id/posts/:post_id/comments' do
   @post = Post.find(params[:post_id]) #define intstance variable for view
   @user = User.find(params[:user_id])
-  @comment = @post.comments.new(body: params[:body], user_id: @user.id) #create new comment
+  @comment = @post.comments.new(body: params[:body], user_id: current_user.id) #create new comment
 
   if @comment.save
     redirect "/users/#{@user.id}/posts/#{@post.id}"

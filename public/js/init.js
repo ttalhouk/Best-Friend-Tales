@@ -11,6 +11,8 @@ $(document).ready(function() {
   $('select').material_select();
   $('select').material_select('destroy');
   Materialize.updateTextFields();
+  // hide shelter contact info
+  $("#contact-details").hide()
 
 
   $('.collapsible').collapsible({
@@ -53,5 +55,12 @@ $(document).ready(function() {
   //   })
 
   // })
+
+    $("#adopt-button").on('click', function(event){
+    event.preventDefault()
+    $(this).hide()
+    $("#contact-details").show()
+    })
+
 
 });

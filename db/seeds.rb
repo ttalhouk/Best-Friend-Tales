@@ -23,10 +23,10 @@ User.all.each do |user|
     sex: @user_pet.sex,
     description: @user_pet.description,
     breeds: @user_pet.breeds.join(" | "),
-    is_pet_of_user: true,
+    is_pet_of_user: false,
     shelter_id: @user_pet.shelter_id
   )
-  user.pets.last.images.create!(name: @user_pet.photos.sample.medium || @user_pet.photos.sample.large)
+  user.pets.last.images.create!(name: (@user_pet.photos.sample.medium || @user_pet.photos.sample.large || @user_pet.photos.sample.small))
   user.posts.create!(title: "#{user.pets.last.name} is #{Faker::Hacker.ingverb}", description: Faker::Hipster.sentence(2), body: Faker::Hipster.paragraph(10))
   user.comments.create!(post_id: rand(1..Post.all.size), body: Faker::StarWars.quote)
   user.images.create!(name: Faker::Avatar.image)

@@ -10,18 +10,43 @@
       <div class="card">
         <div class="card-image">
           <img src="<%= @pet.images.last.name %>">
+          <span class="card-title"><%= @pet.animal %></span>
         </div>
         <div class="card-content center flow-text">
           <p class="red-text text-lighten-2"><%= @pet.name %></p>
-          <p><%= "Species: #{@pet.animal}" %></p>
           <p><%= "Breed: #{@pet.breeds}" %></p>
           <p><%= "Age: #{@pet.age}" if @pet.age %></p>
-
         </div>
       </div>
     </div>
   </div>
 </div>
+<% if @pet.is_pet_of_user == false %>
+  <div class="row">
+    <div class="col s12">
+      <div class="center">
+        <a href="#" id="adopt-button"><button class="btn waves-effect waves-purple light-green">My Story...</button></a>
+      </div>
+      <div id="contact-details">
+        <h3 class="pinky-text center">Listen to my story...</h3>
+        <div class="col s12 m10 offset-m1 l8 offset-l2">
+          <p class="flow-text left"><%= @pet.description %></p>
+        </div>
+        <ul class="center">
+          <li><h2 class="light-blue-text">Contact <span class="light-green-text">me</span> and bring me <span class="light-green-text">home!</span></h2></li>
+          <li><%= @shelter.name %></li>
+          <li><%= @shelter.address1 %></li>
+          <li><%= @shelter.address2 %></li>
+          <li><%= @shelter.city %>, <%= @shelter.state %>. <%= @shelter.zip %></li>
+          <span class="light-green-text">
+            <li class="flow-text">Phone: <%= @shelter.phone || "N/A" %></li>
+            <li class="flow-text">Email: <%= @shelter.email || "N/A" %></li>
+          </span>
+        </ul>
+      </div>
+    </div>
+  </div>
+<% end %>
 
 <div class="row center">
   <a href="/users/<%= @user.id %>"><button class="btn waves-effect waves-purple light-blue">Back to Profile</button></a>

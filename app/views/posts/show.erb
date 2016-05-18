@@ -7,7 +7,7 @@
   <div class="col s12 center">
     <a href="/users/<%= @post.user.id %>">
       <h4>Created by</h4>
-      <p><img src="<%= @post.user.images.last.name %>" class="center tiny-img"> <%= @post.user.username %></p>
+      <p class="pinky-text"><img src="<%= @post.user.images.last.name %>" class="center tiny-img"> <%= @post.user.username %></p>
     </a>
   </div>
 
@@ -15,7 +15,7 @@
     <% if @post.images %>
     <div class="row">
       <div class="col s12 m8 offset-m2 l6 offset-l3 center pinky-text text-ligten-2 ">
-        <img class="responsive-img" src="<%= @post.images.last.name %>">
+        <img class="responsive-img z-depth-2" src="<%= @post.images.last.name %>">
       </div>
     </div>
     <% end %>

@@ -1,14 +1,25 @@
 <div class="row">
   <div class="col s12 center indego-text">
-    <h2>Fellow Pet Enthusiasts</h2>
+    <h2 class="pinky-text">Fellow Pet Lovers</h2>
   </div>
 </div>
 
 <div class="row">
-
-  <div class="col s12 m10 offset-m1 l6 offset-l3 center">
-    <% @user.each do |user| %>
-      <%= erb :"users/_show", locals: {user: user} %>
-    <% end %>
+  <div class="col s12 m6 offset-m3 l4 offset-l4">
+    <ul class="collection">
+      <% @users.each do |user| %>
+        <a href="/users/<%= user.id %>" class="brown-text text-darken-2">
+          <li class="collection-item avatar">
+            <img src="<%= user.images.last.name %>" alt="<%= user.first_name %>'s profile picture" class="circle">
+            <span class="title light-blue-text"><%= user.username %></span>
+            <p>Posts: <%= user.posts.size %> <br>
+               Comments: <%= user.comments.size %> <br>
+               Pets: <%= user.pets.size %>
+            </p>
+            <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+          </li>
+        </a>
+      <% end %>
+    </ul>
   </div>
 </div>

@@ -1,16 +1,16 @@
-  <div class="card col s3 offset-s1">
-    <div class="card-image waves-effect waves-block waves-light">
-      <img class="activator" src="<%= user.images.last.name %>">
-    </div>
-    <div class="card-content pinky lighten-2">
-      <span class="card-title activator white-text text-darken-4"><%= user.username %><i class="material-icons right">more_vert</i></span>
-      <p><a class="white-text" href="/users/<%=user.id%>">Profile Page</a></p>
-    </div>
-    <div class="card-reveal indigo lighten-3">
-      <span class="card-title white-text text-darken-4"><%= user.first_name + " " + user.last_name %><i class="material-icons right">close</i></span>
-      <p class="flow-text white-text">Pets</p>
-      <%user.pets.each do |pet|%>
-      <p><a class="white-text center" href="/users/<%= user.id %>/pets/<%= pet.id %>"><%= pet.name %></a></p>
-      <% end %>
-    </div>
+<div class="card col s3 offset-s1">
+  <div class="card-image waves-effect waves-block waves-light">
+    <img class="activator" src="<%= user.images.last.name %>">
   </div>
+  <div class="card-content pinky lighten-2">
+    <span class="card-title activator white-text text-darken-4"><%= user.username %><i class="material-icons right">more_vert</i></span>
+    <p><a class="white-text" href="/users/<%=user.id%>">Profile Page</a></p>
+  </div>
+  <div class="card-reveal indigo lighten-3">
+    <span class="card-title white-text text-darken-4"><%= user.first_name + " " + user.last_name %><i class="material-icons right">close</i></span>
+    <p class="flow-text white-text">Pets</p>
+    <%user.pets.each do |pet|%>
+    <p><a class="white-text center" href="/users/<%= user.id %>/pets/<%= pet.id %>"><%= pet.name %></a></p>
+    <% end %>
+  </div>
+</div>

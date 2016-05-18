@@ -1,10 +1,8 @@
 # Not linked anywhere but page is built/ needs work
 get '/users' do
   logged_in?
-  @user = User.all
-
+  @users = User.all.shuffle
   erb :'users/index'
-
 end
 
 get '/users/new' do

@@ -5,6 +5,7 @@
     <ul class="right hide-on-med-and-down">
       <% if current_user %>
         <li><a href="/posts">Discover Posts</a></li>
+        <li><a href="/users">All Pet Lovers</a></li>
         <li><a href="/users/<%= current_user.id %>">Profile</a></li>
       <% else %>
         <li><a href="/users/new">Sign Up</a></li>
@@ -19,6 +20,7 @@
     <ul class="side-nav" id="mobile-demo">
       <% if current_user %>
         <li><a herf="/posts">Discover Posts</a></li>
+        <li><a href="/users">All Pet Lovers</a></li>
         <li><a href="/users/<%= current_user.id %>">Profile</a></li>
         <li><a href="/logout">Logout</a><li>
       <% else %>

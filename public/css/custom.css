@@ -27,3 +27,19 @@
   border: 2px solid #03a9f4;
   margin-top: 4em;
 }
+
+.tiny-img {
+  max-height: 3em;
+}
+
+.post-body {
+  background-color: #eceff1;
+  padding: 2em;
+  border-radius: 1em;
+}
+
+.footer-img {
+  max-height: 8em;
+  border-radius: 100%;
+  border: 2px solid white;
+}

@@ -75,16 +75,6 @@ put '/users/:user_id/posts/:post_id' do
 
 end
 
-delete '/posts/:post_id' do
-
-  #get params from url
-  @post = Post.find(params[:id]) #define post to delete
-
-  @post.destroy #delete post
-
-  redirect '/posts' #redirect back to posts index page
-
-end
 
 
 

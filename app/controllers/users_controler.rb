@@ -61,15 +61,3 @@ put '/users/:id' do
   end
 end
 
-delete '/users/:id' do
-
-  #get params from url
-  @user = User.find(params[:id]) #define user to delete
-
-  @user.destroy #delete user
-
-  redirect '/users' #redirect back to user index page
-
-end
-
-

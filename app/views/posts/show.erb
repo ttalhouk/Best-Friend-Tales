@@ -5,7 +5,10 @@
   </div>
 
   <div class="col s12 center">
-  <a href="/users/<%= @post.user.id %>">Created by <%= @post.user.username %>.</a>
+    <a href="/users/<%= @post.user.id %>">
+      <h4>Created by</h4>
+      <p><img src="<%= @post.user.images.last.name %>" class="center tiny-img"> <%= @post.user.username %></p>
+    </a>
   </div>
 
   <article>
@@ -17,8 +20,8 @@
     </div>
     <% end %>
     <div class="row">
-      <div class="col s12 m8 offset-m2 l6 offset-l3 pinky-text">
-        <p class="flow-text"><%= @post.body %></p>
+      <div class="col s12 m8 offset-m2">
+        <p class="flow-text post-body z-depth-1"><%= @post.body %></p>
       </div>
     </div>
   </article>
@@ -33,19 +36,23 @@
       <div class="col s12 m8 offset-m2 l6 offset-l3 pinky-text">
         <ul class="collection">
           <% @post.comments.each do |comment| %>
-          <li class="collection-item"><%= comment.body %><p class="center">-<%= comment.user.username%></p></li>
-
+            <li class="collection-item center">
+              <%= comment.body %>
+              <br/><br/>
+              <a href="/users/<%= comment.user.id %>"><p><img src="<%= comment.user.images.last.name %>" class="circle tiny-img"></p>
+              <p><%= comment.user.username%></p></a>
+            </li>
           <% end %>
         </ul>
       </div>
     </div>
   </section>
     <div class="row center" id="post-buttons">
-      <a id="add-comment" href='/users/<%= @user.id %>/posts/<%= @post.id %>/comments/new'class="waves-effect waves-purple btn"><i class="material-icons left">cloud</i>Add a Comment</a>
+      <a id="add-comment" href='/users/<%= @user.id %>/posts/<%= @post.id %>/comments/new' class="waves-effect waves-purple btn light-green"><i class="material-icons left">cloud</i>Add a Comment</a>
 
 
       <%if @user.id == current_user.id %>
-        <a id="edit-post" href='/users/<%= @user.id %>/posts/<%= @post.id %>/edit'class="waves-effect waves-light btn"><i class="material-icons left">cloud</i>Edit Your Post</a>
+        <a id="edit-post" href='/users/<%= @user.id %>/posts/<%= @post.id %>/edit'class="waves-effect waves-light btn light-blue"><i class="material-icons left">settings</i>Edit Your Post</a>
       <% end %>
     </div>
 

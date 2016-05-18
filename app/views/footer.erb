@@ -1,19 +1,20 @@
 <footer class="page-footer">
   <div class="container">
     <div class="row">
-      <div class="col l6 s12">
-        <h5 class="white-text">PET TALES</h5>
-        <p class="water-green-text flow-text">"<%= Faker::StarWars.quote %>"</p>
-        <p class="white-text">~ <%= Pet.all.sample.name %></p>
+      <div class="col l6 s12 center">
+        <h5 class="brown-text text-darken-2">Best Friend Tales</h5>
+        <% @footer_pet = Pet.all.sample %>
+        <img src="<%= @footer_pet.images.last.name %>" class="footer-img z-depth-3">
+        <p class="white-text">~ <%= @footer_pet.name %></p>
+        <button href="/adoptions" class="btn waves-effect waves-purple light-green">Find Adoptable Pets</button>
       </div>
       <div class="col l4 offset-l2 s12 center">
-        <h5 class="water-green-text">Links</h5>
+        <h5 class="brown-text text-darken-2">Links</h5>
         <ul>
           <% if current_user %>
             <li><a href="/posts" class="white-text">All Posts</a></li>
-            <li><a href="/users/<%= current_user.id %>/posts" class="white-text">Your Posts</a></li>
-            <li><a href="/users/<%= current_user.id %>/comments" class="white-text">Your Comments</a></li>
-            <li><a href="/users/<%= current_user.id %>" class="water-green-text">Profile</a></li>
+            <li><a href="/users" class="white-text">All Pet Lovers</a></li>
+            <li><a href="/users/<%= current_user.id %>" class="white-text">Profile</a></li>
           <% else %>
             <li><a href="/users/new" class="white-text">Sign Up</a></li>
             <li><a href="/login" class="water-green-text">Login</a></li>

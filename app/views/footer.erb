@@ -6,7 +6,7 @@
         <% @footer_pet = Pet.all.sample %>
         <img src="<%= @footer_pet.images.last.name %>" class="footer-img z-depth-3">
         <p class="white-text">~ <%= @footer_pet.name %></p>
-        <button href="/adoptions" class="btn waves-effect waves-purple light-green">Find Adoptable Pets</button>
+        <a href="/adoptions" class="btn waves-effect waves-purple light-green">Find Adoptable Pets</a>
       </div>
       <div class="col l4 offset-l2 s12 center">
         <h5 class="brown-text text-darken-2">Links</h5>

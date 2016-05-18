@@ -20,8 +20,10 @@ end
 # User pets show action
 get '/users/:user_id/pets/:pet_id' do
   logged_in?
+  petfinder = Petfinder::Client.new
   @user = User.find(params[:user_id])
   @pet = Pet.find(params[:pet_id])
+  @shelter = petfinder.shelter(@pet.shelter_id) || false
   erb :'pets/show'
 end
 

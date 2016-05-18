@@ -16,6 +16,7 @@ gem 'shotgun'
 gem 'faker'
 gem 'bcrypt'
 gem 'petfinder', '~> 1.0', '>= 1.0.3'
+gem 'dotenv'
 
 group :test do
   gem 'shoulda-matchers'
@@ -26,5 +27,4 @@ end
 
 group :test, :development do
   gem 'factory_girl'
-  gem 'dotenv'
 end

@@ -1,39 +1,37 @@
+# Not linked anywhere but page is built/ needs work
 get '/users' do
   logged_in?
-  @user = User.all #define instance variable for view
+  @user = User.all
 
-  erb :'users/index' #show all user view (index)
+  erb :'users/index'
 
 end
 
 get '/users/new' do
   @errors = nil
-  erb :'users/new' #show new user view
+  erb :'users/new'
 end
 
 post '/users' do
 
   #below works with properly formatted params in HTML form
-  @user = User.new(params[:user]) #create new user
+  @user = User.new(params[:user])
 
-  if @user.save #saves new user or returns false if unsuccessful
+  if @user.save
     session[:user_id] = @user.id
     @user.images.create(name: params[:image]) if params[:image]
-    redirect "/users/#{@user.id}" #redirect back to user index page
+    redirect "/users/#{@user.id}"
   else
     @errors = @user.errors.full_messages
-    erb :'users/new' # show new user view again(potentially displaying errors)
+    erb :'users/new'
   end
 
 end
 
 get '/users/:id' do
   logged_in?
-  #gets params from url
-
-  @user = User.find(params[:id]) #define instance variable for view
-
-  erb :'users/show' #show single user view
+  @user = User.find(params[:id])
+  erb :'users/show'
 
 end
 

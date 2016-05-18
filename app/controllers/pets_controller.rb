@@ -1,11 +1,3 @@
-# User Pets index action
-get '/users/:user_id/pets' do
-  logged_in?
-  @user = User.find(params[:user_id])
-  @pets = @user.pets.all
-  erb :'pets/index'
-end
-
 # Pets new action
 get '/users/:user_id/pets/new' do
   logged_in?

@@ -1,4 +1,5 @@
 get '/adoptions' do
+  logged_in?
   petfinder = Petfinder::Client.new
   @pets = Array.new
   6.times do

@@ -1,5 +1,6 @@
 $(document).ready(function() {
   // Side Navbar for Mobile
+  $(".waiting").hide()
   $(".button-collapse").sideNav();
   // Character Counter for Form Fields
   $('input#input_text, textarea#textarea1').characterCounter();
@@ -31,7 +32,7 @@ $(document).ready(function() {
     })
 
   })
-    $("#add-comment").on('click', function(event){
+  $("#add-comment").on('click', function(event){
     event.preventDefault()
     var link = $(this).attr('href')
     $("#post-buttons").hide()
@@ -56,11 +57,26 @@ $(document).ready(function() {
 
   // })
 
-    $("#adopt-button").on('click', function(event){
+  $("#adopt-button").on('click', function(event){
     event.preventDefault()
     $(this).hide()
     $("#contact-details").show()
-    })
+  })
 
+  $("#add-more").on('click', function(event){
+    event.preventDefault();
+    $("#more-pets").hide();
+    $(".waiting").show();
+    $.ajax({
+      method: "get",
+      url: "/adoptions"
+    }).done(function(messages){
+      console.log(messages)
+      $(".waiting").hide()
+      $("#pet-cards").append(messages)
+      $("#more-pets").show()
+
+    })
+  })
 
 });

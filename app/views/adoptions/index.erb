@@ -3,40 +3,17 @@
     <h1 class="pinky-text">This could be your new best friend.</h1>
   </div>
 </div>
-
-<% @pets.each do |pet| %>
-  <div class="row">
-    <div class="col s12 m6 offset-m3 l4 offset-l4">
-      <div class="card">
-        <div class="card-image">
-          <img src="<%= pet.photos.sample.medium || pet.photos.sample.large %>">
-          <span class="card-title"><%= pet.animal %></span>
-        </div>
-        <div class="card-content center">
-          <h2 class="center light-blue-text"><%= pet.name %></h2>
-          <p>Sex: <span class="light-green-text"><%= pet.sex %></span></p>
-          <p>Breed(s): <span class="light-green-text"><%= pet.breeds.join(" | ") %></span></p>
-        </div>
-        <div class="card-action">
-          <form action="/users/<%= current_user.id %>/pets" method="POST" class="center">
-            <input type="hidden" name="pet[name]" value="<%= pet.name %>">
-            <input type="hidden" name="pet[animal]" value="<%= pet.animal %>">
-            <input type="hidden" name="pet[mix]" value="<%= pet.mix %>">
-            <input type="hidden" name="pet[age]" value="<%= pet.age %>">
-            <input type="hidden" name="pet[sex]" value="<%= pet.sex %>">
-            <input type="hidden" name="pet[description]" value="<%= pet.description %>">
-            <input type="hidden" name="pet[breeds]" value="<%= pet.breeds.join(" | ") %>">
-            <input type="hidden" name="pet[is_pet_of_user]" value="false">
-            <input type="hidden" name="pet[shelter_id]" value="<%= pet.shelter_id %>">
-            <input type="hidden" name="image" value="<%= pet.photos.sample.medium || pet.photos.sample.large %>">
-            <button type="submit" value="Add to Profile" class="btn waves-effect waves-purple light-green">Add to Profile
-            </button>
-          </form>
-        </div>
-      </div>
-    </div>
+<div id="pet-cards">
+  <%= erb :'adoptions/_index' , layout: false, locals: {pets: @pets} %>
+</div>
+<div class="row" id="more-pets">
+  <div class="col s12 center">
+    <h2 class="light-blue-text">Want more friends?</h2>
+    <a id="add-more" class="waves-effect waves-light btn-large">See More Pets</a>
   </div>
-<% end %>
+</div>
+
+
 
 <!-- <div class="row">
   <div class="col s12 center">
@@ -45,4 +22,4 @@
 </div> -->
 
 
-<script src="/js/petfinder_api.js"></script>
+

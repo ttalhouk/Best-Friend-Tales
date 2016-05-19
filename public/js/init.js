@@ -31,7 +31,7 @@ $(document).ready(function() {
     })
 
   })
-    $("#add-comment").on('click', function(event){
+  $("#add-comment").on('click', function(event){
     event.preventDefault()
     var link = $(this).attr('href')
     $("#post-buttons").hide()
@@ -56,11 +56,21 @@ $(document).ready(function() {
 
   // })
 
-    $("#adopt-button").on('click', function(event){
+  $("#adopt-button").on('click', function(event){
     event.preventDefault()
     $(this).hide()
     $("#contact-details").show()
-    })
+  })
 
+  $("#add-more").on('click', function(event){
+    event.preventDefault();
+    $.ajax({
+      method: "get",
+      url: "/adoptions"
+    }).done(function(messages){
+      console.log(messages)
+      $("#pet-cards").append(messages)
+    })
+  })
 
 });

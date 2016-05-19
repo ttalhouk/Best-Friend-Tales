@@ -63,19 +63,20 @@ $(document).ready(function() {
     $("#contact-details").show()
   })
 
-  $("#add-more").on('click', function(event){
+  $(".add-more").on('click', function(event){
     event.preventDefault();
+    var link = $(this).attr('href')
     $("#more-pets").hide();
     $(".waiting").show();
     $.ajax({
       method: "get",
-      url: "/adoptions"
+      url: link
     }).done(function(messages){
-      console.log(messages)
       $(".waiting").hide()
       $("#pet-cards").append(messages)
       $("#more-pets").show()
-
+    }).fail(function(errors){
+      console.log(errors)
     })
   })
 

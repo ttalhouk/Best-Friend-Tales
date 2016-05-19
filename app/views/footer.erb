@@ -3,8 +3,8 @@
     <div class="row">
       <div class="col l6 s12 center">
         <h5 class="brown-text text-darken-2">Best Friend Tales</h5>
-        <% @footer_pet = Pet.all.sample %>
-        <img src="<%= @footer_pet.images.last.name %>" class="footer-img z-depth-3">
+        <% footer_pet %>
+          <img src="<%= @footer_pet.images.last.name %>" class="footer-img z-depth-3">
         <p class="white-text">~ <%= @footer_pet.name %></p>
         <a href="/adoptions" class="btn waves-effect waves-purple light-green">Find Adoptable Pets</a>
       </div>

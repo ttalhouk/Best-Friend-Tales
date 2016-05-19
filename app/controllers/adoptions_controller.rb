@@ -3,11 +3,11 @@ get '/adoptions' do
   @pets = Array.new
   6.times do
     pet = petfinder.random_pet
-    if (pet.name &&
-        pet.sex &&
+    if (pet.try(:name) &&
+        pet.try(:sex) &&
         pet.breeds.join(" | ") &&
-        pet.photos.sample.medium &&
-        pet.animal )
+        pet.photos.last.try(:medium) &&
+        pet.try(:animal) )
       @pets << pet
     end
   end

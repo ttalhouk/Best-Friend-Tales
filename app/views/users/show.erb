@@ -16,7 +16,7 @@
 <% if is_current_user?(@user) %>
   <div class="row">
     <div class="col s12 center pinky-text text-ligten-2">
-      <a id="user-edit" href="/users/<%= @user.id %>/edit"><button class="btn waves-effect waves-purple light-green">Edit My Profile</button></a>
+      <a id="user-edit" href="/users/<%= @user.id %>/edit"><button class="btn waves-effect waves-purple light-blue">Edit My Profile</button></a>
     </div>
   </div>
 <% end %>
@@ -30,8 +30,10 @@
       <!-- Post Collection -->
       <div class="collection">
         <% @user.posts.each do |post| %>
-          <p class="collection-item"><a href="/users/<%= @user.id %>/posts/<%= post.id %>"><%=  post.title %></a></br>
-          <%= post.description %></p>
+          <a class="collection-item" href="/users/<%= @user.id %>/posts/<%= post.id %>">
+            <p class="light-blue-text"><%=  post.title %></p>
+            <p class="pinky-text"><%= post.description %></p>
+          </a>
         <% end %>
       </div>
 
@@ -52,8 +54,8 @@
       <div class="collection">
         <% @user.comments.each do |comment| %>
           <a href="/users/<%= @user.id %>/posts/<%= comment.post_id %>" class="collection-item">
-            <p class="pinky-text"><%= comment.post.title %></p>
-            <%=comment.body[0..140]%>...
+            <p class="light-blue-text"><%= comment.post.title %></p>
+            <p class="pinky-text"><%=comment.body[0..140]%>...</p>
           </a>
         <% end %>
       </div>
@@ -79,7 +81,7 @@
       <!-- Want to add a pet? -->
       <div class="row">
         <div class="col s12">
-          <h5>Want to add a pet?</h5>
+          <h5>Want to add your own pet?</h5>
           <a href="/users/<%= @user.id %>/pets/new"><button class="btn waves-effect waves-purple light-green">Yes</button></a>
         </div>
       </div>

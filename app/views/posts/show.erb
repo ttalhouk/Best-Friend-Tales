@@ -8,6 +8,11 @@
     <a href="/users/<%= @post.user.id %>">
       <h4>Created by</h4>
       <p class="pinky-text"><img src="<%= @post.user.images.last.name %>" class="center tiny-img"> <%= @post.user.username %></p>
+      <% if @post.sentiment == "N/A" %>
+        <p>The community has not evaluated this post. Leave a comment to start the process.</p>
+      <% else %>
+        <p>This post is viewed as <%= @post.sentiment %> by the community.</p>
+      <% end %>
     </a>
   </div>
 

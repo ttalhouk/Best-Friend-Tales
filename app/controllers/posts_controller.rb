@@ -45,7 +45,7 @@ end
 get '/users/:user_id/posts/:post_id/edit' do
   logged_in?
   #get params from url
-  @post = Post.find(params[:post_id]) #define intstance variable for view
+  @post = Post.find(params[:post_id]) #define instance variable for view
   @user = User.find(params[:user_id])
   if @user.id == current_user.id
     if request.xhr?

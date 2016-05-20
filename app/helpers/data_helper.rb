@@ -1,4 +1,8 @@
 helpers do
+  def gather_sentiment(paragraph)
+    sentiment = RestClient.post("http://text-processing.com/api/sentiment/", text: paragraph)
+    JSON.parse(sentiment)
+  end
 
   def petfinder
     Petfinder::Client.new

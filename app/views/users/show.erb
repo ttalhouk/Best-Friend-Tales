@@ -33,6 +33,9 @@
           <a class="collection-item" href="/users/<%= @user.id %>/posts/<%= post.id %>">
             <p class="light-blue-text"><%=  post.title %></p>
             <p class="pinky-text"><%= post.description %></p>
+            <% unless post.sentiment == "N/A" %>
+              <p><%= post.sentiment %></p>
+            <% end %>
           </a>
         <% end %>
       </div>

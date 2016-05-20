@@ -20,9 +20,9 @@ post '/users/:user_id/posts/:post_id/comments' do
   @comment = @post.comments.new(
     body: params[:body],
     user_id: current_user.id,
-    neg: @comment_sentiment["neg"].to_f,
-    pos: @comment_sentiment["pos"].to_f,
-    neutral: @comment_sentiment["neutral"].to_f,
+    neg: @comment_sentiment["probability"]["neg"],
+    pos: @comment_sentiment["probability"]["pos"],
+    neutral: @comment_sentiment["probability"]["neutral"],
     label: @comment_sentiment["label"]
   )
 

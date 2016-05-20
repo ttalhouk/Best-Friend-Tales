@@ -37,9 +37,9 @@ User.all.each do |user|
   user.comments.create!(
     post_id: rand(1..Post.all.size),
     body: comment_body,
-    pos: comment_body["pos"].to_f,
-    neg: comment_body["neg"].to_f,
-    neutral: comment_body["neutral"].to_f,
+    pos: comment_body["probability"]["pos"],
+    neg: comment_body["probability"]["neg"],
+    neutral: comment_body["probability"]["neutral"],
     label: comment_body["label"]
   )
   user.images.create!(name: Faker::Avatar.image)

@@ -1,4 +1,6 @@
-# Pet Tales
+![best friend tales]('http://www.georgiaspca.org/sites/default/files/images/Paws-for-Consider-icon-v2.jpg')
+
+#Best Friend Tales
 
 This is a Sinatra app for pet lovers to find adoptable pets.
 
@@ -13,13 +15,22 @@ This is a Sinatra app for pet lovers to find adoptable pets.
 - Comment on posts
 - See all comments and posts for every user
 - See other users pets
-- Mobile very friendly
+- Mobile very-friendly
+- Sentiment Analysis on the comments of a user's posts
 
 ## Contributors
 
 1. kelsonic
 2. ttalhouk
 
+## APIs
+
+1. SendGrid
+2. Petfinder
+3. Text-Processing
+4. Google Authentication (to come!)
+5. Facebook Authentication (to come!)
+
 ## MIT License
 
-Share it!
+Share it! Contact kelsonic or ttalhouk to contribute.

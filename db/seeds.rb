@@ -8,7 +8,14 @@ post_images = [
 
 
 20.times do
-  User.create!(username: Faker::Internet.user_name, password: "1234", first_name: Faker::Name.first_name, last_name: Faker::Name.last_name)
+  User.create!(
+    username: Faker::Internet.user_name,
+    password: "1234",
+    first_name: Faker::Name.first_name,
+    last_name: Faker::Name.last_name,
+    email: Faker::Internet.email,
+    zip: Faker::Address.zip_code
+  )
 end
 
 User.all.each do |user|

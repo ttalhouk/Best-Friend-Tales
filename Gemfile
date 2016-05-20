@@ -17,6 +17,7 @@ gem 'faker'
 gem 'bcrypt'
 gem 'petfinder', '~> 1.0', '>= 1.0.3'
 gem 'dotenv'
+gem 'sendgrid-ruby'
 
 group :test do
   gem 'shoulda-matchers'

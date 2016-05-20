@@ -1,6 +1,5 @@
 get '/adoptions' do
   logged_in?
-  petfinder = Petfinder::Client.new
   @pets = Array.new
   6.times do
     pet = petfinder.random_pet
@@ -22,7 +21,6 @@ end
 
 get '/adoptions/zip' do
   logged_in?
-  petfinder = Petfinder::Client.new
 
   pet_data = [["dog", 7], ["cat", 7], ["bird", 3], ["reptile", 1], ["smallfurry", 2]].map do |animal|
     petfinder.find_pets(animal[0], current_user.zip).sample(animal[1])
@@ -36,9 +34,3 @@ get '/adoptions/zip' do
     erb :'adoptions/index'
   end
 end
-# Find pet's photo:
-# petfinder.random_pet.photos.sample.medium
-
-# Find pet's shelter:
-# petfinder.shelter(petfinder.random_pet.shelter_id)
-

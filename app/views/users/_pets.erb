@@ -1,12 +1,12 @@
-
 <% pets.each do |pet| %>
   <% if (pet.is_pet_of_user && yours) || (!pet.is_pet_of_user && !yours)%>
     <div class="chip">
       <img src="<%= pet.images.last.name %>" alt="<%= @user.username %>'s pet">
       <%= pet.name %>
     </div>
-    <a class="delete-pet" href="/users/<%= user.id %>/pets/<%= pet.id %>/"><button class="btn waves-effect waves-purple light-green">Remove</button></a>
     <br>
+    <!-- Need to implement delete pet feature -->
+    <a class="delete-pet red-text" href="/users/<%= user.id %>/pets/<%= pet.id %>">Remove</a>
   <% end %>
 <% end %>
 

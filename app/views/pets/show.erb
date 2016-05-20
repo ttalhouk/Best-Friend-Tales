@@ -24,7 +24,7 @@
     </div>
   </div>
 </div>
-<% if @pet.is_pet_of_user == false %>
+
 <div class="row">
   <div class="col s12">
 
@@ -35,49 +35,51 @@
     </div>
   </div>
 </div>
-<div class="row">
 
-  <div class="center">
-    <a href="#" id="adopt-button"><button class="btn waves-effect waves-purple light-green">Adopt Me!</button></a>
-  </div>
-  <div id="contact-details">
-    <ul class="center">
-      <li><h2 class="light-blue-text">Contact <span class="light-green-text">me</span> and bring me <span class="light-green-text">home!</span></h2></li>
-      <li><%= @shelter.name %></li>
-      <li><%= @shelter.address1 %></li>
-      <li><%= @shelter.address2 %></li>
-      <li><%= @shelter.city %>, <%= @shelter.state %>. <%= @shelter.zip %></li>
-      <span class="light-green-text">
-        <li class="flow-text">Phone: <%= @shelter.try(:phone) ? @shelter.phone : "N/A" %></li>
-        <li class="flow-text">Email: <%= @shelter.try(:email) ? @shelter.email : "N/A" %></li>
-      </span>
-    </ul>
-    <div class="center col s12 m8 offset-m2 l6 offset-l3">
-      <p class="flow-text pinky-text">We wrote an email for you to <span class="light-green-text">begin adopting <%= @pet.name %></span>...</p>
+<% if @pet.is_pet_of_user == false %>
+  <div class="row">
+
+    <div class="center">
+      <a href="#" id="adopt-button"><button class="btn waves-effect waves-purple light-green">Adopt Me!</button></a>
     </div>
-    <div class="row">
-      <div class="col s12 m8 offset-m2 l6 offset-l3">
-        <form action="/users/<%= @user.id %>/pets/<%= @pet.id %>/mailers/new" method="GET">
-          <div class="row">
-            <div class="input-field col s12">
-              <input id="subject" length="50" name="subject" type="text" class="validate" value="Interest in adopting <%= @pet.name %>">
-              <label for="subject">Subject</label>
+    <div id="contact-details">
+      <ul class="center">
+        <li><h2 class="light-blue-text">Contact <span class="light-green-text">me</span> and bring me <span class="light-green-text">home!</span></h2></li>
+        <li><%= @shelter.name %></li>
+        <li><%= @shelter.address1 %></li>
+        <li><%= @shelter.address2 %></li>
+        <li><%= @shelter.city %>, <%= @shelter.state %>. <%= @shelter.zip %></li>
+        <span class="light-green-text">
+          <li class="flow-text">Phone: <%= @shelter.try(:phone) ? @shelter.phone : "N/A" %></li>
+          <li class="flow-text">Email: <%= @shelter.try(:email) ? @shelter.email : "N/A" %></li>
+        </span>
+      </ul>
+      <div class="center col s12 m8 offset-m2 l6 offset-l3">
+        <p class="flow-text pinky-text">We wrote an email for you to <span class="light-green-text">begin adopting <%= @pet.name %></span>...</p>
+      </div>
+      <div class="row">
+        <div class="col s12 m8 offset-m2 l6 offset-l3">
+          <form action="/users/<%= @user.id %>/pets/<%= @pet.id %>/mailers/new" method="GET">
+            <div class="row">
+              <div class="input-field col s12">
+                <input id="subject" length="50" name="subject" type="text" class="validate" value="Interest in adopting <%= @pet.name %>">
+                <label for="subject">Subject</label>
+              </div>
             </div>
-          </div>
-          <div class="row">
-            <div class="input-field col s12">
-              <textarea length="2000" id="message" name="message" class="materialize-textarea">Hi <%= @shelter.name %>. My name is <%= @user.first_name %> <%= @user.last_name %> and I am interested in adopting the <%= @pet.animal.downcase %> with the name "<%= @pet.name %>". Please contact me at <%= @user.email %>. Thank you!</textarea>
-              <label for="message">Message</label>
+            <div class="row">
+              <div class="input-field col s12">
+                <textarea length="2000" id="message" name="message" class="materialize-textarea">Hi <%= @shelter.name %>. My name is <%= @user.first_name %> <%= @user.last_name %> and I am interested in adopting the <%= @pet.animal.downcase %> with the name "<%= @pet.name %>". Please contact me at <%= @user.email %>. Thank you!</textarea>
+                <label for="message">Message</label>
+              </div>
             </div>
-          </div>
-          <div class="row center">
-            <button class="btn waves-effect waves-red light-green" type="submit">Send</button>
-          </div>
-        </form>
+            <div class="row center">
+              <button class="btn waves-effect waves-red light-green" type="submit">Send</button>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
   </div>
-</div>
 <% end %>
 
 <div class="row center">

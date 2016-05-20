@@ -21,6 +21,7 @@ end
 
 # Pets create action
 post '/users/:user_id/pets' do
+  p params[:pet]
   @user = User.find(params[:user_id])
   @pet = @user.pets.new(params[:pet])
   @image = @pet.images.new(name: params[:image])
@@ -28,8 +29,18 @@ post '/users/:user_id/pets' do
   if @pet.save && @image.save
     redirect "/users/#{@user.id}"
   else
-    @errors = "Pet errors: \n#{@pet.errors.full_messages} \nImage errors: \n#{@image.errors.full_messages}"
+    @errors = ["Pet errors: \n#{@pet.errors.full_messages} \nImage errors: \n#{@image.errors.full_messages}"]
     erb :'pets/new'
   end
 end
 
+get '/users/:id/pets' do
+  logged_in?
+  @user = User.find(params[:id])
+  @pets = @user.pets
+  if is_current_user?(@user)
+    erb :'users/pets'
+  else
+    redirect :"/users/#{current_user.id}"
+  end
+end

@@ -8,6 +8,10 @@
         <li><a href="/users">Pet Lovers</a></li>
         <li><a href="/users/<%= current_user.id %>">Profile</a></li>
       <% else %>
+        <li>
+        <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+        </fb:login-button>
+        </li>
         <li><a href="/users/new">Sign Up</a></li>
         <li><a href="/login">Login</a></li>
       <% end %>

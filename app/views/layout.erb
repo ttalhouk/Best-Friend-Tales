@@ -1,12 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Styling -->
   <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="/css/materialize.css" media="screen,projection">
   <link rel="stylesheet" href="/css/custom.css">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- End Styling -->
 
+  <!-- jQuery -->
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+  <!-- User Auth -->
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
+  <meta name="google-signin-client_id" content="<%= ENV['GOOGLE_OAUTH_PUBLIC_KEY'] %>">
+  <!-- End User Auth -->
 
   <title>Best Friend Tales</title>
 </head>

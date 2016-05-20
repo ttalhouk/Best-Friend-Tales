@@ -22,7 +22,6 @@ User.all.each do |user|
   @user_pet = petfinder.random_pet
   user.pets.create!(
     name: @user_pet.name,
-    breeds: @user_pet.breeds,
     animal: @user_pet.animal,
     mix: @user_pet.mix,
     age: @user_pet.age,

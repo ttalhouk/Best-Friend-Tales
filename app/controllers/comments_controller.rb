@@ -16,7 +16,15 @@ end
 post '/users/:user_id/posts/:post_id/comments' do
   @post = Post.find(params[:post_id]) #define intstance variable for view
   @user = User.find(params[:user_id])
-  @comment = @post.comments.new(body: params[:body], user_id: current_user.id) #create new comment
+  @comment_sentiment = gather_sentiment(params[:body])
+  @comment = @post.comments.new(
+    body: params[:body],
+    user_id: current_user.id,
+    neg: @comment_sentiment["probability"]["neg"],
+    pos: @comment_sentiment["probability"]["pos"],
+    neutral: @comment_sentiment["probability"]["neutral"],
+    label: @comment_sentiment["label"]
+  )
 
   if @comment.save
     redirect "/users/#{@user.id}/posts/#{@post.id}"

@@ -33,7 +33,15 @@ User.all.each do |user|
   )
   user.pets.last.images.create!(name: (@user_pet.photos.sample.try(:medium) || 'http://www.georgiaspca.org/sites/default/files/images/Paws-for-Consider-icon-v2.jpg'))
   user.posts.create!(title: "#{user.pets.last.name} is #{Faker::Hacker.ingverb}", description: Faker::Hipster.sentence(2), body: Faker::Hipster.paragraph(10))
-  user.comments.create!(post_id: rand(1..Post.all.size), body: Faker::StarWars.quote)
+  comment_body = Faker::StarWars.quote
+  user.comments.create!(
+    post_id: rand(1..Post.all.size),
+    body: comment_body,
+    pos: comment_body["probability"]["pos"],
+    neg: comment_body["probability"]["neg"],
+    neutral: comment_body["probability"]["neutral"],
+    label: comment_body["label"]
+  )
   user.images.create!(name: Faker::Avatar.image)
 end
 

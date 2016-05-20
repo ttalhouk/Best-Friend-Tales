@@ -30,7 +30,6 @@ get '/users/:id' do
   logged_in?
   @user = User.find(params[:id])
   erb :'users/show'
-
 end
 
 get '/users/:id/edit' do

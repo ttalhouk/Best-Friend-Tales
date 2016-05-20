@@ -1,5 +1,4 @@
 get "/users/:user_id/pets/:pet_id/mailers/new" do
-  petfinder
   @user = User.find(params[:user_id])
   @pet = Pet.find(params[:pet_id])
   @shelter = petfinder.shelter(@pet.shelter_id)

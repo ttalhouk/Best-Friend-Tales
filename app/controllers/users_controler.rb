@@ -35,10 +35,10 @@ end
 
 get '/users/:id/edit' do
   logged_in?
-  #get params from url
-  @user = User.find(params[:id]) #define instance variable for view
-  if @user.id == current_user.id
-    erb :'users/edit' #show edit user view
+  @user = User.find(params[:id])
+  if is_current_user?(@user)
+    @errors = any_errors(@user)
+    erb :'users/edit'
   else
     redirect "users/#{current_user.id}/edit"
   end
@@ -47,15 +47,15 @@ end
 
 put '/users/:id' do
 
-  #get params from url
-  @user = User.find(params[:id]) #define variable to edit
-
-  @user.assign_attributes(params[:user]) #assign new attributes
-
-  if @user.save #saves new user or returns false if unsuccessful
-    redirect '/users' #redirect back to user index page
+  @user = User.find(params[:id])
+  @image = @user.images.last.update(name: params[:image])
+  p params[:user]
+  @user.assign_attributes(params[:user])
+  if @user.save
+    redirect "/users/#{@user.id}"
   else
-    erb :'users/edit' #show edit user view again(potentially displaying errors)
+    @errors = any_errors(@user)
+    erb :'users/edit'
   end
 end
 

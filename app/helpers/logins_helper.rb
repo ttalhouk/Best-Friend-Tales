@@ -10,4 +10,13 @@ helpers do
       false
     end
   end
+
+  def is_current_user?(user)
+    current_user.id === user.id
+  end
+
+  def any_errors(user)
+    error = user.errors.full_messages
+    error == [] ? nil : error
+  end
 end

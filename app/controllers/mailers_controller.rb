@@ -3,7 +3,8 @@ get "/users/:user_id/pets/:pet_id/mailers/new" do
   @pet = Pet.find(params[:pet_id])
   @shelter = petfinder.shelter(@pet.shelter_id)
 
-  if @shelter.try(:email) && is_valid_email?(@shelter.email)
+  if @shelter.try(:email) && (is_valid_email?(@shelter.email) == 0)
+
     # this is a helper to create a sendgrid client
     sendgrid_client
 
@@ -17,6 +18,8 @@ get "/users/:user_id/pets/:pet_id/mailers/new" do
     res = sendgrid_client.send(mail)
     puts res.code
     puts res.body
+    @success = "Your message was sent successfully!"
+    erb :'pets/show'
   else
     @errors = ["There's no email for #{@pet.name}.", "Call #{@shelter.phone} for more info on #{@pet.name}."]
     erb :'pets/show'

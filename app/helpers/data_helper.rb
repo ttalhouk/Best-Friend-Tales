@@ -1,5 +1,9 @@
 helpers do
 
+  def petfinder
+    Petfinder::Client.new
+  end
+
   def check_data(pet_list)
     clean_pets = []
     pet_list.each do |pet|

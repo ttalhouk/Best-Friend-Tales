@@ -1,8 +1,10 @@
 <div class="row">
   <div class="col s12 center">
-    <h1 class="pinky-text">A pet from <span class="light-green-text"><%= @user.username %></span></h1>
+    <h1 class="pinky-text"><span class="light-green-text"><%= @user.username %></span> wants to adopt this pet.</h1>
   </div>
 </div>
+
+<%= erb :errors %>
 
 <div id="pet">
   <div class="row">
@@ -45,10 +47,34 @@
       <li><%= @shelter.address2 %></li>
       <li><%= @shelter.city %>, <%= @shelter.state %>. <%= @shelter.zip %></li>
       <span class="light-green-text">
-        <li class="flow-text">Phone: <%= @shelter.phone || "N/A" %></li>
-        <li class="flow-text">Email: <%= @shelter.email || "N/A" %></li>
+        <li class="flow-text">Phone: <%= @shelter.try(:phone) ? @shelter.phone : "N/A" %></li>
+        <li class="flow-text">Email: <%= @shelter.try(:phone) ? @shelter.phone : "N/A" %></li>
       </span>
     </ul>
+    <div class="center col s12 m8 offset-m2 l6 offset-l3">
+      <p class="flow-text pinky-text">Here's an email you could send to begin adopting <%= @pet.name %>...</p>
+    </div>
+    <div class="row">
+      <div class="col s12 m8 offset-m2 l6 offset-l3">
+        <form action="/users/<%= @user.id %>/pets/<%= @pet.id %>/mailers/new" method="GET">
+          <div class="row">
+            <div class="input-field col s12">
+              <input id="subject" name="subject" type="text" class="validate" value="Interest in adopting <%= @pet.name %>">
+              <label for="subject">Subject</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s12">
+              <textarea id="message" name="message" class="materialize-textarea">Hi <%= @shelter.name %>. My name is <%= @user.first_name %> <%= @user.last_name %> and I am interested in adopting the <%= @pet.animal %> with the name <%= @pet.name %>. Please contact me at <%= @user.email %>. Thank you!</textarea>
+              <label for="message">Message</label>
+            </div>
+          </div>
+          <div class="row center">
+            <button class="btn waves-effect waves-red light-green" type="submit">Send</button>
+          </div>
+        </form>
+      </div>
+    </div>
   </div>
 </div>
 <% end %>

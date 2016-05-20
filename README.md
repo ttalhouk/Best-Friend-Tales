@@ -1,4 +1,4 @@
-![best friend tales]('http://www.georgiaspca.org/sites/default/files/images/Paws-for-Consider-icon-v2.jpg')
+![best friend tales](http://www.georgiaspca.org/sites/default/files/images/Paws-for-Consider-icon-v2.jpg)
 
 #Best Friend Tales
 

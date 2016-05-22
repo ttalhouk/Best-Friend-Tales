@@ -1,16 +1,12 @@
-<% if @pet.is_pet_of_user == true %>
-  <div class="row">
-    <div class="col s12 center">
+<div class="row">
+  <div class="col s12 center">
+    <% if @pet.is_pet_of_user == true %>
       <h1 class="pinky-text"><span class="light-green-text"><%= @user.username %></span> owns this pet.</h1>
-    </div>
-  </div>
-<% else %>
-  <div class="row">
-    <div class="col s12 center">
+    <% else %>
       <h1 class="pinky-text"><span class="light-green-text"><%= @user.username %></span> wants to adopt this pet.</h1>
-    </div>
+    <% end %>
   </div>
-<% end %>
+</div>
 
 <%= erb :errors %>
 <%= erb :success %>

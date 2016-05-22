@@ -43,3 +43,12 @@
   border-radius: 100%;
   border: 2px solid white;
 }
+
+.remove-pet {
+  margin-bottom: 0px;
+}
+
+.delete-pet {
+  border: none;
+  background-color: inherit;
+}

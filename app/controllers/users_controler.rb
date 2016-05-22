@@ -14,10 +14,15 @@ post '/users' do
 
   #below works with properly formatted params in HTML form
   @user = User.new(params[:user])
+  p params
 
   if @user.save
     session[:user_id] = @user.id
-    @user.images.create(name: params[:image]) if params[:image]
+    if params[:image] == ""
+      @user.images.create(name: "https://static.pexels.com/photos/54632/cat-animal-eyes-grey-54632.jpeg")
+    else
+      @user.images.create(name: params[:image])
+    end
     redirect "/users/#{@user.id}"
   else
     @errors = @user.errors.full_messages

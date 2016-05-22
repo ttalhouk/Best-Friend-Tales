@@ -1,12 +1,18 @@
 <% pets.each do |pet| %>
   <% if (pet.is_pet_of_user && yours) || (!pet.is_pet_of_user && !yours)%>
-    <div class="chip">
-      <img src="<%= pet.images.last.name %>" alt="<%= @user.username %>'s pet">
-      <%= pet.name %>
+    <div class="row remove-pet">
+      <div class="chip">
+        <img src="<%= pet.images.last.name %>" alt="<%= @user.username %>'s pet">
+        <%= pet.name %>
+      </div>
     </div>
-    <br>
-    <!-- Need to implement delete pet feature -->
-    <a class="delete-pet red-text" href="/users/<%= user.id %>/pets/<%= pet.id %>">Remove</a>
+    <div class="row">
+      <!-- Need to implement delete pet feature -->
+      <form action="/users/<%= user.id %>/pets/<%= pet.id %>" method="post">
+      <input type="hidden" name="_method" value="delete">
+      <input type="submit" value="remove" class="delete-pet red-text" >
+      </form>
+    </div>
   <% end %>
 <% end %>
 

@@ -48,3 +48,12 @@ get '/users/:id/pets' do
     redirect :"/users/#{current_user.id}"
   end
 end
+
+delete '/users/:user_id/pets/:pet_id' do
+  logged_in?
+  @user = User.find(params[:user_id])
+  @pets = @user.pets
+  Pet.find(params[:pet_id]).destroy
+  @success = "Pet was removed successfully."
+  erb :"users/show"
+end

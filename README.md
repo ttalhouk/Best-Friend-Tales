@@ -1,10 +1,10 @@
-![best friend tales](http://www.georgiaspca.org/sites/default/files/images/Paws-for-Consider-icon-v2.jpg)
+![Best Friend Tales](http://www.georgiaspca.org/sites/default/files/images/Paws-for-Consider-icon-v2.jpg)
 
 #Best Friend Tales
 
 This is a Sinatra app for pet lovers to find adoptable pets.
 
-## Features
+## Usage
 
 - Search of adoptable pets loaded on Petfinder and add them to your profile
 - Search for local pets based on user location
@@ -18,19 +18,19 @@ This is a Sinatra app for pet lovers to find adoptable pets.
 - Mobile very-friendly
 - Sentiment Analysis on the comments of a user's posts
 
+![BFTales example](/public/images/readme-image.jpg)
+
 ## Contributors
 
-1. kelsonic
-2. ttalhouk
+* [kelsonic](https://github.com/kelsonic)
+* [ttalhouk](https://github.com/ttalhouk)
 
 ## APIs
 
-1. SendGrid
-2. Petfinder
-3. Text-Processing
-4. Google Authentication (to come!)
-5. Facebook Authentication (to come!)
+* SendGrid
+* Petfinder
+* Text-Processing
 
 ## MIT License
 
-Share it! Contact kelsonic or ttalhouk to contribute.
+MIT License. View it [here](LICENSE).

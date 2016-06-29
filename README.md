@@ -4,7 +4,7 @@
 
 This is a Sinatra app for pet lovers to find adoptable pets.
 
-## Usage
+## Features
 
 - Search of adoptable pets loaded on Petfinder and add them to your profile
 - Search for local pets based on user location
@@ -29,7 +29,7 @@ This is a Sinatra app for pet lovers to find adoptable pets.
 
 * SendGrid
 * Petfinder
-* Text-Processing
+* Text-Processing Sentiment Analysis
 
 ## MIT License
 

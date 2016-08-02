@@ -30,7 +30,7 @@ This is a Sinatra app for pet lovers to find adoptable pets.
 
 4. ```cd sinatra_version```
 
-5. ```bundle```
+5. ```bundle install```
 
 6. ```be rake db:drop```
 
@@ -44,7 +44,7 @@ This is a Sinatra app for pet lovers to find adoptable pets.
 
 Your app will now be running on [localhost:9393](http://localhost:9393).
 
-#### If you see an ```undefined method 'images for nil:NilClass``` error, follow these steps:
+#### To set your environment variables with the Sinatra version, follow these steps:
 
 1. Create a .env file in the /sinatra_version directory
 
@@ -70,7 +70,7 @@ SENDGRID_USERNAME=someherokuapp@heroku.com
 
 4. ```cd rails_version```
 
-5. ```bundle```
+5. ```bundle install```
 
 6. ```be rake db:drop```
 
@@ -84,7 +84,7 @@ SENDGRID_USERNAME=someherokuapp@heroku.com
 
 Your app will now be running on [localhost:3000](http://localhost:3000).
 
-#### To set your environment variables, follow these steps:
+#### To set your environment variables with the Rails version, follow these steps:
 
 1. From rails_version directory, ```cd config```
 
@@ -106,6 +106,7 @@ SENDGRID_USERNAME: someherokuapp@heroku.com
 
 * [kelsonic](https://github.com/kelsonic)
 * [ttalhouk](https://github.com/ttalhouk)
+* [sanlouise](https://github.com/sanlouise)
 
 ## APIs
 

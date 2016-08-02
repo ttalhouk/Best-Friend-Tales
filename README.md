@@ -2,7 +2,11 @@
 
 # Best Friend Tales
 
-This is a Sinatra app for pet lovers to find adoptable pets.
+Approximately 7.6 million companion animals enter animal shelters nationwide every year. Of those, approximately 3.9 million are dogs and 3.4 million are cats. And each year, approximately 2.7 million animals are euthanized (1.2 million dogs and 1.4 million cats).
+
+[Best Friend Tales](http://bftales.com) was built to help solve this problem. 
+
+Find a local pet (dog, cat, bird, mouse, and much more) in need of a home and blog about their tale as they join your family.
 
 ## Features
 
@@ -60,7 +64,7 @@ SENDGRID_USERNAME=someherokuapp@heroku.com
 
 3. Restart your server and run ```be shotgun```
 
-## Getting Started: Rails
+## Getting Started: Rails (ALPHA)
 
 1. Fork the Repo
 

@@ -1,0 +1,54 @@
+<div id="index-banner" class="parallax-container">
+  <div class="section no-pad-bot">
+    <div class="container">
+      <br><br><br/><br/>
+      <h1 class="header center pinky-text">Welcome to Best Friend Tales</h1>
+      <br/><br/><br/>
+      <div class="row center">
+        <% unless current_user %>
+          <%= link_to "Create an Account", new_user_registration_path, class: "btn-large waves-effect waves-purple light-green" %>
+          <!-- <a href="/users/new" class="btn-large waves-effect waves-purple light-green">Create an Account</a> -->
+        <% end %>
+      </div>
+      <br><br>
+
+    </div>
+  </div>
+  <div class="parallax">
+    <%= image_tag('background1-compressor.jpg', alt: "Unsplashed background img 1") %>
+    <!-- <img src="./assets/images/background1-compressor.jpg" alt="Unsplashed background img 1"></div> -->
+</div>
+
+<div class="row center pinky white-text banner">
+  <div class="col s12">
+    <h2>Let these pets tell their tale...</h2>
+  </div>
+</div>
+
+<div class="parallax-container valign-wrapper">
+  <div class="parallax">
+    <%= image_tag('background2-compressor.jpg', alt: "Unsplashed background img 1")  %>
+  </div>
+</div>
+
+<div class="row center pinky white-text banner">
+  <div class="col s12">
+    <h2>and get the home they deserve.</h2>
+  </div>
+</div>
+
+<div class="parallax-container valign-wrapper">
+  <div class="section no-pad-bot">
+    <div class="container">
+      <div class="row center">
+        <h5 class="header col s12 light">Find your new best friend.</h5>
+        <%= link_to "Adoption Page", adoptions_path, class: "btn waves-effect waves-red light-blue" %>
+        <!-- <a href="/adoptions" class="btn waves-effect waves-red light-blue">Adoption Page</a> -->
+      </div>
+    </div>
+  </div>
+  <div class="parallax">
+    <%= image_tag('background3-compressor.jpg', alt: "Unsplashed background img 1")  %>
+    <!-- <img src="/assets/images/background3-compressor.jpg" alt="Unsplashed background img 3"> -->
+  </div>
+</div>

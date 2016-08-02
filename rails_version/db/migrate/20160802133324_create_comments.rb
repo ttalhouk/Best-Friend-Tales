@@ -4,6 +4,10 @@ class CreateComments < ActiveRecord::Migration
       t.string :body
       t.integer :user_id
       t.integer :post_id
+      t.decimal :pos
+      t.decimal :neg
+      t.decimal :neutral
+      t.string :label
 
       t.timestamps null: false
     end

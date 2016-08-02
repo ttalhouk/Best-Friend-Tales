@@ -18,7 +18,7 @@ This is a Sinatra app for pet lovers to find adoptable pets.
 - Mobile very-friendly
 - Sentiment Analysis on the comments of a user's posts
 
-![BFTales example](/public/images/readme-image.jpg)
+![BFTales example](sinatra_version/public/images/readme-image.jpg)
 
 ## Getting Started: Sinatra
 
@@ -34,17 +34,17 @@ This is a Sinatra app for pet lovers to find adoptable pets.
 
 6. ```be rake db:drop```
 
-6. ```be rake db:create```
+7. ```be rake db:create```
 
-6. ```be rake db:migrate```
+8. ```be rake db:migrate```
 
-6. ```be rake db:seed```
+9. ```be rake db:seed```
 
-7. ```be shotgun```
+10. ```be shotgun```
 
 Your app will now be running on [localhost:9393](http://localhost:9393).
 
-**If you see an ```undefined method 'images for nil:NilClass``` error, follow these steps:**
+#### If you see an ```undefined method 'images for nil:NilClass``` error, follow these steps:
 
 1. Create a .env file in the /sinatra_version directory
 
@@ -74,17 +74,17 @@ SENDGRID_USERNAME=someherokuapp@heroku.com
 
 6. ```be rake db:drop```
 
-6. ```be rake db:create```
+7. ```be rake db:create```
 
-6. ```be rake db:migrate```
+8. ```be rake db:migrate```
 
-6. ```be rake db:seed```
+9. ```be rake db:seed```
 
-7. ```be rails server```
+10. ```be rails server```
 
 Your app will now be running on [localhost:3000](http://localhost:3000).
 
-**To set your environment variables, follow these steps:**
+#### To set your environment variables, follow these steps:
 
 1. From rails_version directory, ```cd config```
 
@@ -100,7 +100,7 @@ SENDGRID_PASSWORD: aaabababababaaaab2342342342342
 SENDGRID_USERNAME: someherokuapp@heroku.com
 ```
 
-3. Restart your server and run ```be rails s```
+4. Restart your server and run ```be rails s```
 
 ## Contributors
 

@@ -20,4 +20,7 @@
 # Ignore Byebug command history file.
 .byebug_history
 
+# Ignore application configuration for Env Variables
+/config/application.yml
+
 Gemfile.lock

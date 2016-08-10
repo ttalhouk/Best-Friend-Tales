@@ -1,0 +1,33 @@
+<div class="row">
+  <div class="col s12 center">
+    <h1 class="pinky-text">This could be your new best friend.</h1>
+  </div>
+</div>
+<div id="pet-cards">
+  <%= erb :'adoptions/_index' , layout: false, locals: {pets: @pets} %>
+</div>
+<div class="row" id="more-pets">
+  <div class="col s12 center">
+    <h2 class="light-blue-text">More adoptable friends?</h2>
+    <div class="row">
+      <div class="col s12 center" id="add-more-buttons">
+        <a href="/adoptions" class="waves-effect waves-purple btn-large light-blue add-more">Yes, show me more</a>
+        <a href="/adoptions/zip" class="waves-effect waves-purple btn-large light-blue add-more">Find Pets in your Area</a>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row center">
+  <div class="preloader-wrapper big active waiting center">
+    <div class="spinner-layer spinner-blue">
+      <div class="circle-clipper left">
+        <div class="circle"></div>
+      </div>
+      <div class="gap-patch">
+      <div class="circle"></div>
+    </div>
+    <div class="circle-clipper right">
+      <div class="circle"></div>
+    </div>
+    </div>
+  </div>

@@ -1,0 +1,58 @@
+<% pets.each do |pet| %>
+  <div class="row">
+    <div class="col s12 m6 offset-m3 l4 offset-l4">
+      <div class="card">
+        <div class="card-image">
+          <%if pet.photos.last.medium %>
+            <!-- <img src="<%= pet.photos.last.try(:medium) %>"> -->
+            <%= image_tag("#{pet.photos.last.try(:medium)}", alt: "Pet Image")  %>
+          <% else %>
+            <!-- <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/300px-No_image_available.svg.png"> -->
+            <%= image_tag('https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/300px-No_image_available.svg.png', alt: "No Image Available")  %>
+          <% end %>
+          <span class="card-title"><%= pet.animal %></span>
+        </div>
+        <div class="card-content center">
+          <h2 class="center light-blue-text"><%= pet.name %></h2>
+          <p>Sex: <span class="light-green-text"><%= pet.sex %></span></p>
+          <p>Breed(s): <span class="light-green-text"><%= pet.breeds.join(" | ") %></span></p>
+        </div>
+        <div class="card-action">
+
+
+          <%= form_for (pet, :url => user_pets_path(current_user) do |f| %>
+            <%= f.text_field :name, type:"hidden"%>
+            <%= f.text_field :animal, type:"hidden"%>
+            <%= f.text_field :mix, type:"hidden"%>
+            <%= f.text_field :age, type:"hidden"%>
+            <%= f.text_field :sex, type:"hidden"%>
+            <%= f.text_field :description, type:"hidden"%>
+            <%= f.text_field :breeds,value:"#{pet.breeds.join(" | ")}", type:"hidden"%>
+            <%= f.text_field :is_pet_of_user, value:false, type:"hidden"%>
+            <%= f.text_field :name, type:"hidden"%>
+            <%= f.text_field :shelter_id, type:"hidden"%>
+            <%= f.text_field :image, value:"#{pet.photos.sample.medium || pet.photos.sample.large}" , type:"hidden"%>
+            <%= f.submit, value:"Add to Profile", class:"btn waves-effect waves-purple light-green"%> 
+          <% end %>
+
+
+          <!-- <form action="/users/<%= current_user.id %>/pets" method="POST" class="center">
+            <input type="hidden" name="pet[name]" value="<%= pet.name %>">
+            <input type="hidden" name="pet[animal]" value="<%= pet.animal %>">
+            <input type="hidden" name="pet[mix]" value="<%= pet.mix %>">
+            <input type="hidden" name="pet[age]" value="<%= pet.age %>">
+            <input type="hidden" name="pet[sex]" value="<%= pet.sex %>">
+            <input type="hidden" name="pet[description]" value="<%= pet.description %>">
+            <input type="hidden" name="pet[breeds]" value="<%= pet.breeds.join(" | ") %>">
+            <input type="hidden" name="pet[is_pet_of_user]" value="false">
+            <input type="hidden" name="pet[shelter_id]" value="<%= pet.shelter_id %>">
+            <input type="hidden" name="image" value="<%= pet.photos.sample.medium || pet.photos.sample.large %>">
+            <button type="submit" value="Add to Profile" class="btn waves-effect waves-purple light-green">Add to Profile
+            </button>
+          </form> -->
+
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
